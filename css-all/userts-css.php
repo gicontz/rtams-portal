@@ -14,7 +14,10 @@ margin-bottom: 2%;
 background:#FFD700;
 color:black;
 padding:14px;
-border-radius: 10px;
-   
+border-radius: 10px;  
+}
+
+.red {
+    color:  red;
 }
 </style>

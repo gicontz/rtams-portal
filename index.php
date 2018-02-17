@@ -45,7 +45,7 @@ include('functions.php');
 <div class="panel panel-default">
 
 <div class="panel-heading">                                
-<div class="row-fluid user-row"><a href="index.php"><img src="images/tmp-icon.png" class="img-responsive"></a></div>
+<div class="row-fluid user-row"><a href="index.php"><img src="images/rtams-logo.png" class="img-responsive"></a></div>
 </div>
                         
 <div class="panel-body">

@@ -1,5 +1,6 @@
-<?php include("css-all/sidebar-css.php"); 
+<?php 
 ob_start();
+include("css-all/sidebar-css.php"); 
 $session_username2 = $_SESSION['users_details']['username'];
 $session_firstname = $_SESSION['users_details']['first_name'];
 $session_lastname = $_SESSION['users_details']['last_name'];
