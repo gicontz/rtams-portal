@@ -1,76 +1,24 @@
 <?php
 ob_start();
+include 'functions.php';
 session_start();
-include 'db.php';
-//$session_role2 = $_SESSION['role'];
-$session_username2 = $_SESSION['username'];
-$session_id = $_SESSION['id'];
+if (isset($_SESSION['users_details'])) {
+      $accessibility = $_SESSION['users_details']['account_type'];
+      switch ($_SESSION['users_details']['account_type']) {
+              case 'teacher':
+                header('Location: '. $domain_header . '/homepage-instructor');
+                break;
+              case 'student':
+                header('Location: '. $domain_header . '/homepage-student');
+                break;
+                case 'admin':
+                //header('Location: '. $domain_header . '/homepage-admin');
+                break;
+            }
+    }else{    	
+                header('Location: '. $domain_header);
+    }
 
-
-if(!isset($_SESSION['username']))
-{
-header('location: login-admin.php');
-}
-
-
-if(isset($_POST['add_admin']))
-{  
-$date = time();
-$username = mysqli_real_escape_string($con,strtolower($_POST['username']));
-$username_trim = preg_replace('/\s+/','',$username);
-$password = mysqli_real_escape_string($con,$_POST['password']); 
-    
-$firstname = mysqli_real_escape_string($con, $_POST['firstname']);
-$middlename = mysqli_real_escape_string($con, $_POST['middlename']);
-$lastname = mysqli_real_escape_string($con,$_POST['lastname']);
-$email = mysqli_real_escape_string($con,strtolower($_POST['email']));   
-$image = $_FILES['image']['name'];
-$image_tmp = $_FILES['image']['tmp_name'];   
-   
- 
-if($username != $username_trim)
-{
-echo "<script language='javascript'>alert('Don't use spaces in Username')</script>"; 
-}
-$check_query = "select * from tbl_admin where email = '$email' or username = '$username' ";
-$check_run = mysqli_query($con, $check_query);    
-
-if(mysqli_num_rows($check_run) > 0)
-{
-echo "<script language='javascript'>alert('Username or Email Already Exist')</script>"; 
-} 
- 
-else
-{
-$password = md5($password);     
-$insert_query = "INSERT INTO `tbl_admin` (`date`, `username`, `password`, `email`, `firstname`, `middlename`, `lastname`, `image`, `acct_status`) VALUES ('$date', '$username', '$password', '$email', '$firstname', '$middlename', '$lastname', '$image', 'activate')";
-   
-    
-if(mysqli_query($con,$insert_query))
-{  
-echo "<script language='javascript'>alert('Administrator Account has been Added')</script>";    
-header("refresh:1; homepage-admin.php");   
-    
-//$image_check   = "select * from tbl_admin order by id desc limit 1";
-//$image_run     = mysqli_query($con, $image_check);
-//$image_row     = mysqli_fetch_array($image_run);
-//$check_image   = $image_row['image'];
-    
-$path = "system-img/$image";
-
-if(move_uploaded_file($image_tmp, $path))
-{
-copy($path, "$path"); 
-}               
-}
-   
-else
-{
-echo "<script language='javascript'>alert('Something Wrong in the Code')</script>"; 
-}
-}
-} 
-//Add Admin Account
 ?>
 
 

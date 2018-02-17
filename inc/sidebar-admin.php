@@ -1,9 +1,9 @@
 <?php include("css-all/sidebar-css.php"); 
 ob_start();
-$session_username2 = $_SESSION['username'];
-$session_firstname = $_SESSION['firstname'];
-$session_lastname = $_SESSION['lastname'];
-$session_image = $_SESSION['image'];
+$session_username2 = $_SESSION['users_details']['username'];
+$session_firstname = $_SESSION['users_details']['first_name'];
+$session_lastname = $_SESSION['users_details']['last_name'];
+$session_image = $_SESSION['users_details']['img_src'];
 $none = "empty.png";
 ?>
      
@@ -49,9 +49,9 @@ echo $session_image;
 <span href="#" class="list-group-item"> Menu <span class="pull-right" id="slide-submenu">
 </span></span>
        
-<a href="homepage-admin.php" class="list-group-item"> ADD <i class="fa fa-plus pull-right" aria-hidden="true"></i></a>
-<a href="user-table.php" class="list-group-item"> MANAGE USER ACCOUNT <i class="fa fa-pencil pull-right" aria-hidden="true"></i></a>
-<a href="record.php" class="list-group-item"> RECORD <i class="fa fa-file pull-right" aria-hidden="true"></i> </a> 
+<a href="homepage-admin" class="list-group-item"> ADD <i class="fa fa-plus pull-right" aria-hidden="true"></i></a>
+<a href="user-table" class="list-group-item"> MANAGE USER ACCOUNT <i class="fa fa-pencil pull-right" aria-hidden="true"></i></a>
+<a href="record" class="list-group-item"> RECORD <i class="fa fa-file pull-right" aria-hidden="true"></i> </a> 
 <a href="profile-admin.php" class="list-group-item"> PROFILE <i class="fa fa-user pull-right" aria-hidden="true"></i> </a> 
 </div> <!--end list group-->
   
