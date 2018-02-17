@@ -40,7 +40,6 @@ padding-top: 100px;
     
 .img-responsive {
 display: block;
-max-width: 40%;
 height: auto;
 margin: auto;
 }

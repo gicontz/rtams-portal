@@ -2,18 +2,18 @@
 
 include('lib/XDLINE.php');
 include('lib/variables.php');
-//include('lib/subjects.php');
-//include('lib/instructors.php');
-//include('lib/students.php');
+// include('lib/subjects.php');
+// include('lib/instructors.php');
+include('lib/students.php');
 
 $XDLINE = "XDLINE";
 $subjects = "Subjects";
 $instructors = "Instructor";
 $students = "Student";
 $XDL = new $XDLINE;	
-//$subjectClass = new $subjects;
-//$instructorClass = new $instructors;
-//$studentClass = new $students;
+// $subjectClass = new $subjects;
+// $instructorClass = new $instructors;
+$studentClass = new $students;
 
 function getHeaderAssets(){
 	?>

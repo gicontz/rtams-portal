@@ -1,7 +1,6 @@
 <?php
 ob_start();
 session_start();
-include 'db.php'; 
 ?>
 
 <!DOCTYPE html>
@@ -36,8 +35,9 @@ include("inc/datatabletop.php");
 <div class="panel panel-heading" style="font-weight:bold; color:#006400; text-align:center;"><i class="fa fa-user-plus" aria-hidden="true"></i> Attendance</div>
 <div class="panel-body"> 
 
-                                         
-<h1 style="text-align:center;">BLANK</h1>
+	<table class="table table-striped table-hover table-responsive table-responsive">
+        <?php include('lib/attendance.php'); ?>
+	</table>
 
 
 </div> <!--panel body end-->                                
