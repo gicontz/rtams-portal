@@ -24,6 +24,7 @@ function getHeaderAssets(){
 
 	<script src = "js/jquery.min.js"></script>
 	<script src = "js/bootstrap.min.js"></script>
+
 	<?php
 	include_once('inc/session_checker.php');
 }
@@ -34,6 +35,7 @@ function getFooterContents(){
 		<h2><br>RTAMS</h2>
 		<p>Real Time Attendance Monitoring System <br/>Allrights reserved 2018 &copy;</p><br><br>
 	</footer>
+
 	<?php
 }
 

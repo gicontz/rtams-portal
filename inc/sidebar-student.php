@@ -60,7 +60,7 @@ echo $session_image;
 
 <a href="profile-student.php" class="list-group-item"><i class="fa fa-user" aria-hidden="true"></i> Profile</a>
 
-<a href="index.php" class="list-group-item"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout </a>
+<a href="logout.php" class="list-group-item"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout </a>
 </div> <!--end list group-->
   
         
