@@ -59,7 +59,7 @@ class XDLINE{
 
 	public static function select($select, $from, $where, $ini_file_dir = "../config.ini"){			
 		$index = 0;
-
+                             
 		$where = $where != "" ? "WHERE $where" : $where;
 		$sql = "SELECT $select FROM $from ". $where;	
 		$result = self::xdline_connect($ini_file_dir)->query($sql);
