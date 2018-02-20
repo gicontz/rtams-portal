@@ -12,11 +12,11 @@ class Student extends XDLINE{
 	} 
 
 	public function getRFIDNumber($userid, $configfile){
-		$student_number = $this->getStudentNumber($userid, $configfile);
-		return parent::select("rfid_number", "students_table", "student_number = $student_number", $configfile)[0]['rfid_number'];
+		return parent::select("rfid_number", "students_table", "user_id = $userid", $configfile)[0]['rfid_number'];
 	}
 
-	public function showAttendanceFiltered($date_in, $configfile){
-		return parent::select("time_in, time_out, date_in", "attendance_table", "date_in LIKE '%$date_in%'", $configfile);
+	public function showAttendanceFiltered($date_in, $userid, $configfile){
+		$rfid = $this->getRFIDNumber($userid, $configfile);		
+		return parent::select("time_in, time_out, date_in", "attendance_table", "date_in LIKE '%$date_in%' and rfid_number = $rfid", $configfile);
 	}
 }

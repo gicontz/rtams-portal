@@ -3,12 +3,12 @@ include('/../functions.php');
 
 
 	global $studentClass, $userid;
-	$conf = "config.ini";
-	$studentId = $studentClass->getRFIDNumber($userid, $conf);
-	$studentAttendance = $studentClass->showAttendance($studentId, $conf);
-	
+	$conf = "../config.ini";
+		//$studentId = $studentClass->getRFIDNumber($_POST['user_id'], $conf);
+		$studentAttendance = $studentClass->showAttendanceFiltered($_GET["date"], $_GET['userid'], $conf);
 	if($studentAttendance[0] != "") :
 	?>
+		<table class="table table-striped table-hover table-responsive table-responsive">
 		<tr>
 			<th>Time in</th>
 			<th>Time out</th>
@@ -36,3 +36,5 @@ include('/../functions.php');
 	endif;
 
 ?>
+		</table>
+		<script src="js/bootstrap.min.js"></script>

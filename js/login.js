@@ -11,8 +11,8 @@ $(".enterInputSignin").keypress(function(e) {
 
 
 
-$(".btn-modals").click(function(){
-	$('.alert').hide();
+$(".btn-modals, .closebtn").click(function(){
+    $('.alert').addClass('hide');
 });
 
 

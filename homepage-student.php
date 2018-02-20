@@ -38,7 +38,7 @@ include("css-all/userts-css.php");
 <div class="panel panel-success">
 <div class="panel panel-heading" style="font-weight:bold; color:#006400; text-align:center;"><i class="fa fa-user-plus" aria-hidden="true"></i> Attendance</div>
 	<div class="panel-body filter-select"> 
-		<form action="" method="post">
+		<form action="" method="get">
 			<div class="form-group">
 				<label for="filterdate">Filter by:</label>  
 				<input class="datepicker" name="date" data-date-format="MM dd yyyy">
@@ -49,9 +49,13 @@ include("css-all/userts-css.php");
 	</div>
 <div class="panel-body"> 
 
-	<table id="student-attendance" class="table table-striped table-hover table-responsive table-responsive">
-        <?php include('lib/attendance.php'); ?>
-	</table>
+	<div id="student-attendance">	
+		<table class="table table-striped table-hover table-responsive table-responsive">
+	        <?php 
+	        $userid = $_SESSION['users_details']['user_id'];
+	        include('lib/attendance.php'); ?>
+		</table>
+	</div>
 
 
 </div> <!--panel body end-->                                

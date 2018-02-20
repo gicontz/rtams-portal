@@ -1,12 +1,8 @@
 function filterStudentAttendance (userid, date) {
-	$.post("lib/attendance.php", {
-    date: date,
-	   userid: userid},
-    function(callback){  
-      $('#student-attendance').load(callback);
-      alert(callback);
-      }
-    );
+  var date = $(".datepicker").val();
+  date = date.replace(/ /g, "%20");
+  var userid = $("[name = 'userid']").val(); 
+      $('#student-attendance').load("inc/attendance-bydate.php?date="+date+"&userid="+userid);
 }
 
 $(document).ready(function(){

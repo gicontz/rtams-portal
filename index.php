@@ -86,7 +86,7 @@ include('functions.php');
                <div class="form-group">
                 <div class="col-sm-12">
                   <div class="alert fade in hide">
-                  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                  <span class="closebtn">&times;</span> 
                     <p>Wrong Password or Username.</p>
                   </div>
                 </div>  
