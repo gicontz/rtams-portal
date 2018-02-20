@@ -1,6 +1,8 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+<script src="js/jquery.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/main-script.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script src="js/code.js"></script>
+<link rel="stylesheet" href="css/jquery-ui.css">
 <script>
 $(function(){
     $('.button-checkbox').each(function(){

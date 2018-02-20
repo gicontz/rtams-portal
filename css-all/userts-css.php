@@ -20,4 +20,10 @@ border-radius: 10px;
 .red {
     color:  red;
 }
+
+.form-group select, .form-group button {
+    display:  inline-block;
+    width:  15%;
+    vertical-align: middle;
+}
 </style>

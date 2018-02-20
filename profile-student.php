@@ -5,7 +5,7 @@ include 'db.php';
 
 if(!isset($_SESSION['student_id']))
 {
-header('location: login.php');
+header('location: lib/login.php');
 }
 
 $session_student_id = $_SESSION['student_id'];

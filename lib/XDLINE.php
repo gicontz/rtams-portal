@@ -59,9 +59,28 @@ class XDLINE{
 
 	public static function select($select, $from, $where, $ini_file_dir = "../config.ini"){			
 		$index = 0;
-
+                             
 		$where = $where != "" ? "WHERE $where" : $where;
 		$sql = "SELECT $select FROM $from ". $where;	
+		$result = self::xdline_connect($ini_file_dir)->query($sql);
+		if ($result->num_rows > 0) {
+			    // output data of each row
+			while($row = $result->fetch_assoc()) {		    	
+				$out[$index] = $row;
+				$index++;
+			}
+		} else {		    
+			$out[0] = "";
+		}
+		self::xdline_connect($ini_file_dir)->close();
+		return $out;
+	}
+
+	public static function orderedSelect($select, $from, $where, $order, $ini_file_dir = "../config.ini"){			
+		$index = 0;
+                             
+		$where = $where != "" ? "WHERE $where" : $where;
+		$sql = "SELECT $select FROM $from ". $where . " " . $order;	
 		$result = self::xdline_connect($ini_file_dir)->query($sql);
 		if ($result->num_rows > 0) {
 			    // output data of each row
