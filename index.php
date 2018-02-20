@@ -5,7 +5,7 @@ include('functions.php');
       $accessibility = $_SESSION['users_details']['account_type'];
       switch ($_SESSION['users_details']['account_type']) {
               case 'teacher':
-                header('Location: '. $domain_header . '/homepage-instructor');
+                header('Location: '. $domain_header . '/homepage-teacher');
                 break;
               case 'student':
                 header('Location: '. $domain_header . '/homepage-student');

@@ -1,5 +1,6 @@
 <?php 
+	include('../functions.php');
 	session_start();
 	session_destroy();
-    header('Location: /cvsuportal');
+    header('Location: ' . $domain_header);
  ?>

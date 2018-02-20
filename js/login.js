@@ -32,7 +32,7 @@ function loginCheck(){
 
         $.post("lib/login.php", {data: data}, function(callback){
             if(callback == "GOTO PROFILE teacher"){
-            	window.open("homepage-instructor", '_self');
+            	window.open("homepage-teacher", '_self');
             }else if (callback == "GOTO PROFILE student") {
                 window.open("homepage-student", '_self');
             }else if (callback == "GOTO PROFILE admin") {

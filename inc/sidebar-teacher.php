@@ -1,7 +1,7 @@
 <?php include("css-all/sidebar-css.php"); 
-$session_firstname = $_SESSION['firstname'];
-$session_lastname = $_SESSION['lastname'];
-$session_image = $_SESSION['image'];
+$session_firstname = $_SESSION['users_details']['first_name'];
+$session_lastname = $_SESSION['users_details']['last_name'];
+$session_image = $_SESSION['users_details']['img_src'];
 $none = "empty.png";
 ?>
      
@@ -57,7 +57,7 @@ echo $session_image;
 
 <a href="profile-teacher.php" class="list-group-item"><i class="fa fa-user" aria-hidden="true"></i> Profile</a>
 
-<a href="index.php" class="list-group-item"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout </a>
+<a href="lib/logout" class="list-group-item"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout </a>
 </div> <!--end list group-->
   
         

@@ -1,7 +1,23 @@
 <?php
 ob_start();
 session_start();
-include 'db.php'; 
+include 'functions.php';
+if (isset($_SESSION['users_details'])) {
+      $accessibility = $_SESSION['users_details']['account_type'];
+      switch ($_SESSION['users_details']['account_type']) {
+              case 'teacher':
+                //header('Location: '. $domain_header . '/homepage-teacher');
+                break;
+              case 'student':
+                header('Location: '. $domain_header . '/homepage-student');
+                break;
+                case 'admin':
+                header('Location: '. $domain_header . '/homepage-admin');
+                break;
+            }
+    }else{    	
+                header('Location: '. $domain_header);
+    }
 ?>
 
 
