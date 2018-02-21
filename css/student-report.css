@@ -1,0 +1,61 @@
+.student-info{
+	display: none;
+}
+.report-img {
+    width: 150px;
+    height: 150px;
+    float: right;
+    margin-bottom: 20px;
+}
+.details {
+    float: left;
+    margin-bottom: 20px;
+}
+img.water-img {
+    position: fixed;
+    opacity: 0.3;
+    width: 150px;
+    height: 200px;
+    bottom: 0;
+    right: 0;
+}
+
+img.water-img {
+	display: none;
+}
+@media print{
+.student-info, img.water-img{
+	display: block;
+}
+.list-group {
+    display:  none;
+}
+
+.panel.panel-heading {
+    display:  none;
+}
+
+.panel-body.filter-select form {
+    display:  none;
+}
+
+.btn-primary {
+    display:  none !important;
+}
+
+.panel-body.filter-select {
+    padding-top: 0;
+}
+
+.panel-body {
+    padding-top: 0;
+}
+
+h3.attendance-title {
+    margin:  0;
+}
+.panel.panel-success {
+    border: none;
+    border-color: #ffffff;
+}
+}
