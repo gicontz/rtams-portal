@@ -16,6 +16,10 @@ class Student extends XDLINE{
 		return $sectArray[0];
 	}
 
+	public function showAllSection($configfile){
+		return parent::select("section_id, course_main_title, year, section", "courses_table inner join sections_table on courses_table.course_id = sections_table.course_id", "", $configfile);
+	}
+
 	public function getRFIDNumber($userid, $configfile){
 		return parent::select("rfid_number", "students_table", "user_id = $userid", $configfile)[0]['rfid_number'];
 	}
@@ -25,12 +29,21 @@ class Student extends XDLINE{
 		return parent::select("time_in, time_out, date_in", "attendance_table", "date_in LIKE '%$date_in%' and rfid_number = $rfid", $configfile);
 	}
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 	public function addStudent($student_id, $firstname, $lastname, $middlename, $ext, $contact_number, $configfile){
+=======
+
+	public function addStudent($student_id, $firstname, $lastname, $middlename, $section, $ext, $contact_number, $configfile){
+>>>>>>> parent of 08c1b78... Revert "Fix some issues"
 		$uid = parent::select("MAX(user_id)", "users_table", "", $configfile)[0]['MAX(user_id)'];
 		$stud_info = parent::select("student_number, contact_number", "students_table", "student_number = $student_id or contact_number = $contact_number", $configfile)[0];
 		if($stud_info == ""):
 			$res = parent::insert("users_table", array(
+<<<<<<< HEAD
+=======
+				'account_type' => 'student',
+>>>>>>> parent of 08c1b78... Revert "Fix some issues"
 				'first_name' => $firstname,
 				'last_name' => $lastname,
 				'middle_name' => $middlename,
@@ -44,11 +57,18 @@ class Student extends XDLINE{
 					'student_number' => $student_id,
 					'user_id' => $uid + 1,
 					'rfid_number' => 0,
+<<<<<<< HEAD
+=======
+					'section_id' => $section,
+>>>>>>> parent of 08c1b78... Revert "Fix some issues"
 					'contact_number' => $contact_number
 				), "1", "0", $configfile);
 			endif;
 		endif;
 	}
+<<<<<<< HEAD
 =======
 >>>>>>> parent of 1e9a4fc... Fix some issues
+=======
+>>>>>>> parent of 08c1b78... Revert "Fix some issues"
 }
