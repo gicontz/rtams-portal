@@ -1,8 +1,8 @@
 function filterStudentAttendance (userid, date) {
-  var date = $(".datepicker").val();
-  date = date.replace(/ /g, "%20");
-  var userid = $("[name = 'userid']").val(); 
-      $('#student-attendance').load("inc/attendance-bydate.php?date="+date+"&userid="+userid);
+	var date = $(".datepicker").val();
+	date = date.replace(/ /g, "%20");
+	var userid = $("[name = 'userid']").val(); 
+	$('#student-attendance').load("inc/attendance-bydate.php?date="+date+"&userid="+userid);
 }
 
 $(document).ready(function(){
@@ -21,3 +21,4 @@ $(document).ready(function(){
 	$("#"+tab_id).addClass('current');
 	});
 });
+
