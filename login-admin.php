@@ -79,7 +79,7 @@ echo "<script language='javascript'>alert('$text')</script>";
 <div class="panel panel-default">
                         
 <div class="panel-body">
-<h4 style="font-weight:bold; color:#006400; text-align:center;">LOGIN:</h4>
+<h4 style="font-weight:bold; color:#006400; text-align:center;">LOGIN AS ADMIN:</h4>
 <form action="" method="post">
 <div class="form-group">
 <label>Username</label>

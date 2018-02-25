@@ -5,18 +5,15 @@ include('lib/variables.php');
 // include('lib/subjects.php');
 // include('lib/instructors.php');
 include('lib/students.php');
-include('lib/admin.php');
 
 $XDLINE = "XDLINE";
 $subjects = "Subjects";
 $instructors = "Instructor";
 $students = "Student";
-$admin = "Admin";
 $XDL = new $XDLINE;	
 // $subjectClass = new $subjects;
 // $instructorClass = new $instructors;
 $studentClass = new $students;
-$adminClass = new $admin;
 
 function getHeaderAssets(){
 	?>

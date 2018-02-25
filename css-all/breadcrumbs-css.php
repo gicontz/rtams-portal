@@ -26,12 +26,4 @@ ol.breadcrumb > li > a:hover
         border-right: 4px solid #FFD700;
         color: black;
     }
-
-.tab-content{
-    display: none;
-}
-
-.tab-content.current{
-    display: inherit;
-}
 </style>

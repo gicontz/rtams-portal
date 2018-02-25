@@ -49,6 +49,7 @@ include('functions.php');
 </div>
                         
 <div class="panel-body">
+<h4 style="font-weight:bold; color:#006400; text-align:center;">LOGIN AS:</h4>
 <a class="btn btn-lg btn-green center-block" data-toggle="modal" data-target="#lgmodal">LOGIN</a><br>                              
 </div>
 </div>
