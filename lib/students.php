@@ -24,6 +24,7 @@ class Student extends XDLINE{
 		$rfid = $this->getRFIDNumber($userid, $configfile);		
 		return parent::select("time_in, time_out, date_in", "attendance_table", "date_in LIKE '%$date_in%' and rfid_number = $rfid", $configfile);
 	}
+<<<<<<< HEAD
 
 	public function addStudent($student_id, $firstname, $lastname, $middlename, $ext, $contact_number, $configfile){
 		$uid = parent::select("MAX(user_id)", "users_table", "", $configfile)[0]['MAX(user_id)'];
@@ -48,4 +49,6 @@ class Student extends XDLINE{
 			endif;
 		endif;
 	}
+=======
+>>>>>>> parent of 1e9a4fc... Fix some issues
 }
