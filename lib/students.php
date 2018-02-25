@@ -24,4 +24,28 @@ class Student extends XDLINE{
 		$rfid = $this->getRFIDNumber($userid, $configfile);		
 		return parent::select("time_in, time_out, date_in", "attendance_table", "date_in LIKE '%$date_in%' and rfid_number = $rfid", $configfile);
 	}
+
+	public function addStudent($student_id, $firstname, $lastname, $middlename, $ext, $contact_number, $configfile){
+		$uid = parent::select("MAX(user_id)", "users_table", "", $configfile)[0]['MAX(user_id)'];
+		$stud_info = parent::select("student_number, contact_number", "students_table", "student_number = $student_id or contact_number = $contact_number", $configfile)[0];
+		if($stud_info == ""):
+			$res = parent::insert("users_table", array(
+				'first_name' => $firstname,
+				'last_name' => $lastname,
+				'middle_name' => $middlename,
+				'extension' => $ext,
+				'username' => "student" . ($uid + 1),
+				'password' => parent::encrypt_password('12345678'),
+			), "1", "0", $configfile);
+
+			if($res == "1"):
+				parent::insert("students_table", array(
+					'student_number' => $student_id,
+					'user_id' => $uid + 1,
+					'rfid_number' => 0,
+					'contact_number' => $contact_number
+				), "1", "0", $configfile);
+			endif;
+		endif;
+	}
 }
