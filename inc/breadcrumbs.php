@@ -2,11 +2,7 @@
 
 
 <ol class="breadcrumb"> 
-      
-<li><a href="homepage-admin.php"> Admin Account </a></li>
-
-<li><a href="add-teacher.php"> Teacher Account </a></li>
-
-<li><a href="add-student.php"> Student Account </a></li>
-
+<li class="tab-link current" data-tab="admin-tab"><a href="#">Admin Account</a></li>
+<!-- <li class="tab-link current" data-tab="teacher-tab"><a href="#">Teacher Account</a></li> -->
+<li class="tab-link" data-tab="student-tab"><a href="#">Student Account</a></li>
 </ol>
