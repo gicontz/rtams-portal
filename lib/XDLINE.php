@@ -35,7 +35,7 @@ class XDLINE{
 	* @return mysqli Connection to the MySQL
 	*/
 
-	private function xdline_connect($ini_file_dir = "../config.ini"){
+	private static function xdline_connect($ini_file_dir = "../config.ini"){
 		$xdl_db_settings = parse_ini_file($ini_file_dir, true);
 
 			//Initialize Database Configuration

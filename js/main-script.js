@@ -7,18 +7,27 @@ function filterStudentAttendance (userid, date) {
 
 $(document).ready(function(){
 	$('.datepicker').datepicker({ dateFormat: 'MM dd, yy' });
-    $('#filter-attendance').click(function(){
-    	filterStudentAttendance();
-    });
+	$('#filter-attendance').click(function(){
+		filterStudentAttendance();
+	});
 
 	$('.breadcrumb li').click(function(){
-	var tab_id = $(this).attr('data-tab');
+		var tab_id = $(this).attr('data-tab');
 
-	$('.breadcrumb li').removeClass('current');
-	$('.tab-content').removeClass('current');
+		$('.breadcrumb li').removeClass('current');
+		$('.tab-content').removeClass('current');
 
-	$(this).addClass('current');
-	$("#"+tab_id).addClass('current');
+		$(this).addClass('current');
+		$("#"+tab_id).addClass('current');
+	});
+
+	loadStudents();
+	$("#btn-update-student").click(function(){
+		
 	});
 });
+
+function loadStudents(){
+	$("#student_list").load("inc/student_list.php");
+}
 

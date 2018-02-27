@@ -33,10 +33,9 @@ if (isset($_SESSION['users_details'])) {
  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
  <link rel="icon" type="image/png" href="images/tmp-icon.png">
- <link href="css/bootstrap.min.css" rel="stylesheet">
- <link rel="stylesheet" href="css/font-awesome.css">
 
  <?php 
+ getHeaderAssets();
  include("css-all/useradmin-css.php");
  include("inc/datatabletop.php");
  ?>
@@ -76,9 +75,9 @@ if (isset($_SESSION['users_details'])) {
                   </div> <!--ADD FIRSTNAME-->
 
                   <div class="form-group">
-                      <label>Middlename:</label>           
-                      <input type="text" name="middlename" class="form-control" placeholder="Middlename" value="" required>   
-                    </div> <!--ADD FIRSTNAME-->
+                    <label>Middlename:</label>           
+                    <input type="text" name="middlename" class="form-control" placeholder="Middlename" value="" required>   
+                  </div> <!--ADD FIRSTNAME-->
                 </div> <!--COL-MD-6 END-->
                 
 
@@ -121,86 +120,110 @@ if (isset($_SESSION['users_details'])) {
             </div>
             <div id="student-tab" class="tab-content">
               <form action="inc/add-student.php" method="post">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="stud_id">Student ID:</label> 
-                    <input type="text" name="stud_id" class="form-control" placeholder="20111111" id="stud_id" value="" required> 
-                  </div> <!--STUDENT ID-->
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="stud_id">Student ID:</label> 
+                      <input type="number" name="stud_id" class="form-control" placeholder="20111111" id="stud_id" value="" required> 
+                    </div> <!--STUDENT ID-->
 
-                  <div class="form-group">
-                    <label>Firstname:</label>           
-                    <input type="text" name="firstname" class="form-control" placeholder="Firstname" value="" required>   
-                  </div> <!--ADD FIRSTNAME-->
+                    <div class="form-group">
+                      <label>Firstname:</label>           
+                      <input type="text" name="firstname" class="form-control" placeholder="Firstname" value="" required>   
+                    </div> <!--ADD FIRSTNAME-->
 
-                  <div class="form-group">
-                    <label>Middlename:</label>           
-                    <input type="text" name="middlename" class="form-control" placeholder="Middlename" value="" required>
-                  </div> <!--ADD FIRSTNAME-->
+                    <div class="form-group">
+                      <label>Middlename:</label>           
+                      <input type="text" name="middlename" class="form-control" placeholder="Middlename" value="" required>
+                    </div> <!--ADD FIRSTNAME-->
 
-                  <div class="form-group">
-                    <label>Lastname:</label> 
-                    <input type="text" name="lastname" class="form-control" placeholder="Lastname" value="" required> 
-                  </div> <!--ADD LASTNAME-->
-                </div> <!--COL-MD-6 END-->
+                    <div class="form-group">
+                      <label>Lastname:</label> 
+                      <input type="text" name="lastname" class="form-control" placeholder="Lastname" value="" required> 
+                    </div> <!--ADD LASTNAME-->
+                  </div> <!--COL-MD-6 END-->
 
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label>Section:</label>
-                    <select id="sections" name="section" class="form-control">
-                      <option value="" default>Choose section</option>
-                      <?php
-                      $sections  = $studentClass->showAllSection("config.ini");
-                      foreach($sections as $section){ 
-                        $program = $section['course_main_title'];
-                        $year = $section['year'];
-                        ?>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Section:</label>
+                      <select id="sections" name="section" class="form-control">
+                        <option value="" default>Choose section</option>
                         <?php
-                        $year = $program == "Kindergarten" || $program == "Preparatory" ? "" : $year;
-                        ?>
-                        <option value="<?php echo $section['section_id']; ?>"><?php echo $program; ?> <?php echo $year; ?> <?php echo $section['section']; ?></option>            
-                        <?php
-                      }
-                      ?>        
-                    </select>
-                  </div> <!--ADD LASTNAME-->
+                        $sections  = $studentClass->showAllSection("config.ini");
+                        foreach($sections as $section){ 
+                          $program = $section['course_main_title'];
+                          $year = $section['year'];
+                          ?>
+                          <?php
+                          $year = $program == "Kindergarten" || $program == "Preparatory" ? "" : $year;
+                          ?>
+                          <option value="<?php echo $section['section_id']; ?>"><?php echo $program; ?> <?php echo $year; ?> <?php echo $section['section']; ?></option>            
+                          <?php
+                        }
+                        ?>        
+                      </select>
+                    </div> <!--ADD LASTNAME-->
 
-                  <div class="form-group">
-                    <label>Extension: *(optional)</label> 
-                    <select name="extension_name" class="form-control">
-                      <option value="" default>Choose extension name</option>
-                      <option value="Jr.">Jr.</option>
-                      <option value="Sr.">Sr.</option>
-                      <option value="I">I</option>
-                      <option value="II">II</option>
-                      <option value="III">III</option>
-                      <option value="IV">IV</option>
-                      <option value="V">V</option>
-                    </select>   
-                  </div> <!--ADD EXTENSION-->
+                    <div class="form-group">
+                      <label>Extension: *(optional)</label> 
+                      <select name="extension_name" class="form-control">
+                        <option value="" default>Choose extension name</option>
+                        <option value="Jr.">Jr.</option>
+                        <option value="Sr.">Sr.</option>
+                        <option value="I">I</option>
+                        <option value="II">II</option>
+                        <option value="III">III</option>
+                        <option value="IV">IV</option>
+                        <option value="V">V</option>
+                      </select>   
+                    </div> <!--ADD EXTENSION-->
 
-                  <div class="form-group">
-                    <label>Contact Number:</label> 
-                    <input type="text" name="contact_no" class="form-control" placeholder="Contact Number" value="" required>   
-                  </div> <!--ADD LASTNAME-->
+                    <div class="form-group">
+                      <label>Contact Number:</label> 
+                      <input type="number" name="contact_no" class="form-control" placeholder="Contact Number" value="" required>   
+                    </div> <!--ADD LASTNAME-->
 
-                </div> <!--COL-MD-6 END-->
+                  </div> <!--COL-MD-6 END-->
 
-                <div class="col-md-12">       
-                  <center><input type="submit" value="Add Student" name="add_admin" class="btn btn-default btn-md"></center>
-                </div> 
+                  <div class="col-md-12">       
+                    <div class="text-center">
+                      <input type="submit" value="Add Student" name="add_admin" class="btn btn-default btn-md">
+                      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#importStudentModal">Import Students</button>
+                    </div>
+                  </div>  
+                </div>
               </form> 
-              <!--ADD STUDENT ACCOUNT-->
+
+              <div class="modal fade" id="importStudentModal" role="dialog">
+                <div class="modal-dialog modal-sm" style="margin-top: 140px;">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h4 class="modal-title"><center>Import Students</center></h4>
+                    </div>
+
+                    <div class="modal-body">
+                      <input type="file" name="student_info_file">
+                      <buttn class="btn btn-primary">Import File</buttn>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="student_list">
+                </div>
+                <!--ADD STUDENT ACCOUNT-->
+              </div>
             </div>
           </div>
-        </div>
 
 
-      </div> <!--panel body end-->                                
-    </div> <!--panel end-->   
-  </div> <!--md-8 end-->            
-</div> <!--container end-->
+        </div> <!--panel body end-->                                
+      </div> <!--panel end-->   
+    </div> <!--md-8 end-->            
+  </div> <!--container end-->
 
-<?php 
+  <?php 
 include("inc/bot/javascript.php"); //BOOTSTRAP AND CHECKBOX
 ?> 
 

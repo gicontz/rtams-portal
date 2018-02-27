@@ -1,7 +1,24 @@
 <?php
 
-
 class Student extends XDLINE{
+
+	var $configfile;
+
+	function __construct(){
+		$args = func_get_args();
+		switch (func_num_args()) {
+			case 1:
+				self::__construct1($args[0]);
+				break;
+			
+			default:
+				break;
+		}
+	}
+
+	function __construct1($conf){
+		$this->configfile = $conf;
+	}
 
 	public function getStudentNumber($userid, $configfile){
 		return parent::select("student_number", "students_table", "user_id = $userid", $configfile)[0]['student_number'];
@@ -29,7 +46,9 @@ class Student extends XDLINE{
 		return parent::select("time_in, time_out, date_in", "attendance_table", "date_in LIKE '%$date_in%' and rfid_number = $rfid", $configfile);
 	}
 
-
+	public function showAllStudents(){
+		return parent::select("*", "students_table inner join users_table on students_table.user_id = users_table.user_id ORDER BY username", "", $this->configfile);
+	}
 	
 	public function addStudent($student_id, $firstname, $lastname, $middlename, $section, $ext, $contact_number, $configfile){
 		$uid = parent::select("MAX(user_id)", "users_table", "", $configfile)[0]['MAX(user_id)'];

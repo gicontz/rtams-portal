@@ -1,13 +1,9 @@
-var grades_array;
-
-function Import(str, sheet, sid) {
+function Import(str) {
     $.ajax({
     type: "post",
-    url: "inc/grade_import.php",
+    url: "inc/student_import.php",
     data: {
-        grades: str,
-        sheetName: sheet,
-        subjid: sid,
+        student_info: str
     },
     success: function(data){              
             $("#alert_modal span").text(data);
