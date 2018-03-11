@@ -50,12 +50,14 @@ class Student extends XDLINE{
 		return parent::select("*", "students_table inner join users_table on students_table.user_id = users_table.user_id ORDER BY username", "", $this->configfile);
 	}
 	
+	public function showStudentbyId($user_id){
+		return parent::select("*", "students_table inner join users_table on students_table.user_id = users_table.user_id", "students_table.user_id = $user_id", $this->configfile);
+	}
 	public function addStudent($student_id, $firstname, $lastname, $middlename, $section, $ext, $contact_number, $configfile){
 		$uid = parent::select("MAX(user_id)", "users_table", "", $configfile)[0]['MAX(user_id)'];
 		$stud_info = parent::select("student_number, contact_number", "students_table", "student_number = $student_id or contact_number = $contact_number", $configfile)[0];
 		if($stud_info == ""):
 			$res = parent::insert("users_table", array(
-				'account_type' => 'student',
 				'account_type' => 'student',
 				'first_name' => $firstname,
 				'last_name' => $lastname,
@@ -66,15 +68,38 @@ class Student extends XDLINE{
 			), "1", "0", $configfile);
 
 			if($res == "1"):
-				parent::insert("students_table", array(
+				$uid = parent::select("MAX(user_id)", "users_table", "", $configfile)[0]["MAX(user_id)"];
+				return parent::insert("students_table", array(
 					'student_number' => $student_id,
-					'user_id' => $uid + 1,
+					'user_id' => $uid,
 					'rfid_number' => 0,
-					'section_id' => $section,
 					'section_id' => $section,
 					'contact_number' => $contact_number
 				), "1", "0", $configfile);
 			endif;
+			return "0";
 		endif;
+	}
+
+	public function updateStudent($student_id, $firstname, $lastname, $middlename, $section, $ext, $contact_number, $password, $username, $uid){
+		
+			$ress = parent::update("users_table", array(
+				'first_name' => $firstname,
+				'last_name' => $lastname,
+				'middle_name' => $middlename,
+				'extension' => $ext,
+				'password' => parent::encrypt_password($password),
+				'username' => $username
+			), "user_id = $uid", "1", "error", $this->configfile);
+
+			if($ress == "1"):
+				return parent::update("students_table", array(
+					'student_number' => $student_id,
+					'section_id' => $section,
+					'contact_number' => $contact_number
+				), "user_id = $uid", "1", "error", $this->configfile);
+			endif;
+
+			return $ress;
 	}
 }

@@ -5,9 +5,11 @@ function Import(str) {
     data: {
         student_info: str
     },
-    success: function(data){              
-            $("#alert_modal span").text(data);
-            $("#alert_modal").removeClass("hidden");
+    success: function(data){             
+        alert(data);
+        $("#student_list").load("inc/student_list.php");
+        $("#alert_modal span").text(data);
+        $("#alert_modal").removeClass("hidden");
      }
 });
 }

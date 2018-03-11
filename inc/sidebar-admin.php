@@ -47,6 +47,8 @@ echo $session_image;
 </div> <!--end panel body-->
 </div> <!--end panel success--> 
 
+  </div>
+<div class="menu_sidebar" style="display: none">
 <span href="#" class="list-group-item"> Menu <span class="pull-right" id="slide-submenu">
 </span></span>
        
@@ -55,7 +57,6 @@ echo $session_image;
 <a href="record" class="list-group-item"> RECORD <i class="fa fa-file pull-right" aria-hidden="true"></i> </a> 
 <a href="profile-admin.php" class="list-group-item"> PROFILE <i class="fa fa-user pull-right" aria-hidden="true"></i> </a> 
 </div> <!--end list group-->
-  
         
 </div> <!--end row-->
 

@@ -42,21 +42,21 @@ var process_wb = (function() {
 		if(sheet_name != ""){
 			var fullPath = $('#xlf').val();
 			if (fullPath) {
-			    var startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
-			    var filename = fullPath.substring(startIndex);
-			    if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) {
-			        filename = filename.substring(1);
-			    }
-			    $(".file_status").text(filename);		    
+				var startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
+				var filename = fullPath.substring(startIndex);
+				if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) {
+					filename = filename.substring(1);
+				}
+				$(".file_status").text(filename);		    
 			}
 			global_wb = wb;
 			var output = to_json(wb);
 			to_html(wb);
 			$("table").addClass("table table-hover");
-	  		var e = document.querySelectorAll(".table tr:first-of-type td");
+			var e = document.querySelectorAll(".table tr:first-of-type td");
 
 			e.forEach(function(th){
-			var d = document.createElement('th');
+				var d = document.createElement('th');
 				d.innerHTML = th.innerHTML;
 				th.parentNode.replaceChild(d, th);
 			});
@@ -107,6 +107,7 @@ var do_file = (function() {
 			if(!rABS) data = new Uint8Array(data);
 			if(use_worker) xw(data, process_wb);
 			else process_wb(X.read(data, {type: rABS ? 'binary' : 'array'}));
+			$(".show_data").click(); 
 		};
 		if(rABS) reader.readAsBinaryString(f);
 		else reader.readAsArrayBuffer(f);
@@ -137,14 +138,19 @@ var do_file = (function() {
 (function() {
 	var xlf = document.getElementById('xlf');
 	if(!xlf.addEventListener) return;
-	function handleFile(e) { do_file(e.target.files); }
-	xlf.addEventListener('change', handleFile, false);
-})();
+	function handleFile(e) { 
+		do_file(e.target.files); 
+	}
+		xlf.addEventListener('change', handleFile, false);
+	})();
+
+$(document).ready(function(){
+	$(".start-import").on('click', function(){
+		Import(grades_array);
+	});	
+})
 
 
-$(".import_btn").on('click', function(){
-	Import(grades_array, sheet_name, sid);
-});
-$("body").on('click', function(){	
-	$("#alert_modal").addClass("hidden");
-});
+	$("body").on('click', function(){	
+		$("#alert_modal").addClass("hidden");
+	});

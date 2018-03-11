@@ -22,9 +22,6 @@ $(document).ready(function(){
 	});
 
 	loadStudents();
-	$("#btn-update-student").click(function(){
-		
-	});
 });
 
 function loadStudents(){

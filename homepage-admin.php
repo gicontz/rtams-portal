@@ -203,28 +203,78 @@ if (isset($_SESSION['users_details'])) {
                     </div>
 
                     <div class="modal-body">
-                      <input type="file" name="student_info_file">
-                      <buttn class="btn btn-primary">Import File</buttn>
-                      </div>
+                      <div id="grading_sheet" class="pre_section">
+                        <script type="text/javascript" src="js/student_import_ajax.js"></script>
+                        <div id="alert_modal" class="hidden">
+                          <span>asdf</span>
+                        </div>
+                        <form method="post" action>
+                          <div id="drop">
+                            <input type="file" name="xlfile" id="xlf" />
+                            <p class="file_status"></p>
+                          </div>
+                          <input type="button" class="hidden btn btn-primary show_data" name="import" value="IMPORT" data-toggle="modal" data-target="#excelRead">
+                        </form>
+                        <div class="hidden">
+                         <input type="checkbox" name="useworker" checked>
+                         <input type="checkbox" name="userabs" checked>        
+                       </div>
+                       <br />
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+
+             <div class="modal fade" id="excelRead" role="dialog">
+              <div class="modal-dialog modal-lg" style="margin-top: 140px;">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"><center>Import Students</center></h4>
+                  </div>
+
+                  <div class="modal-body">
+                    <div id="grading_sheet" class="pre_section">
+                     <div id="htmlout"></div>
+                     <div id="out"></div>
+                     <div class="import_performer">
+                      <form method="post" action>
+                        <button type="button" class="btn btn-warning start-import">IMPORT</button>
+                      </form>
                     </div>
+
+                    <script src="dist/cpexcel.js"></script>
+                    <script src="js/shim.js"></script>
+                    <script src="js/jszip.js"></script>
+                    <script src="js/xlsx.js"></script>
+                    <script src="js/student_import.js"></script>
                   </div>
                 </div>
-
-                <div id="student_list">
-                </div>
-                <!--ADD STUDENT ACCOUNT-->
               </div>
             </div>
           </div>
 
+          <!--ADD STUDENT ACCOUNT-->
+        </div>
 
-        </div> <!--panel body end-->                                
-      </div> <!--panel end-->   
-    </div> <!--md-8 end-->            
-  </div> <!--container end-->
 
-  <?php 
-include("inc/bot/javascript.php"); //BOOTSTRAP AND CHECKBOX
+        <div id="student_list_tab" class="tab-content">
+          <div id="student_list">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div> <!--panel body end-->                                
+</div> <!--panel end-->   
+</div> <!--md-8 end-->            
+</div> <!--container end-->
+
+<?php 
+getFooterAssets();
 ?> 
 
 </body>

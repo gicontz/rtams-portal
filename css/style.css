@@ -16,3 +16,45 @@ body{
 .icon-primary{
 	color: #337ab7 !important;
 }
+
+#drop {
+    width:  100%;
+    border: 2px dashed gray;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+#drop input {
+    opacity:  0;
+    padding: 60px 0;
+}
+
+#drop:before {
+    position: absolute;
+    content: 'DROP HERE';
+    text-align: center;
+    width: 100%;
+    top: 50%;
+    font-family: 'Helvetica';
+    color: #e0cbcb;
+    font-size: 25px;
+    margin-top: -17.5px;
+}
+#excelRead .modal-content {
+    max-height: 400px;
+    overflow-y: scroll;
+}
+
+#excelRead {
+    top: 0;
+}
+.import_performer {
+    position: fixed;
+    bottom: 0;
+    padding: 5px 20px;
+    width: 100%;
+    left: 0;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background: #ffe970;
+}

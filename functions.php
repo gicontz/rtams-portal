@@ -23,11 +23,19 @@ function getHeaderAssets(){
 	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/style.css">
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery-ui.js"></script>
 
 	<?php
 	include_once('inc/session_checker.php');
 }
 
+function getFooterAssets(){
+	?>
+	<script src="js/main-script.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<?php
+}
 function getFooterContents(){
 	?>
 	<footer class="footer col-md-12" style="background-color: white;">
