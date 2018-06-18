@@ -50,7 +50,36 @@ $studnum = $studentClass->getStudentNumber($userid, $configfile);
 $section = $studentClass->getSection($userid, $configfile);
 $tsection = $section['course_main_title'] . " " . $section['year'] .  $section['section'];
 ?>
+<script type="text/javascript">
+	  // Let's check if the browser supports notifications
+  if (!("Notification" in window)) {
+    alert("This browser does not support desktop notification");
+  }
 
+  // Let's check whether notification permissions have already been granted
+  else if (Notification.permission === "granted") {
+      	var options = Object();
+      	options.body = "Hi There!";
+      	options.icon = "http://localhost/rtams-portal/system-img/logo.png";
+        var notification = new Notification("RTAMS PORTAL", options);
+        var notification = new Notification("RTAMS PORTAL", options);
+        var notification = new Notification("RTAMS PORTAL", options);
+        var notification = new Notification("RTAMS PORTAL", options);
+  }
+
+  // Otherwise, we need to ask the user for permission
+  else if (Notification.permission !== "denied") {
+    Notification.requestPermission(function (permission) {
+      // If the user accepts, let's create a notification
+      if (permission === "granted") {
+      	var options = Object();
+      	options.body = "Hi There!";
+      	options.icon = "http://localhost/rtams-portal/system-img/logo.png";
+        var notification = new Notification("RTAMS PORTAL", options);
+      }
+    });
+  }
+</script>
 </head>
 
 <body>

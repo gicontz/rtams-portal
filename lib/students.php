@@ -30,6 +30,9 @@ class Student extends XDLINE{
 
 	public function getSection($userid, $configfile){
 		$sectArray = parent::select("course_main_title, year, section", "students_table inner join sections_table on students_table.section_id = sections_table.section_id inner join courses_table on sections_table.course_id = courses_table.course_id", "user_id = $userid", $configfile);
+		?>
+		<script type="text/javascript"> alert(<?php print_r($sectArray[0]['course_main_title']); ?>);</script>
+		<?php 
 		return $sectArray[0];
 	}
 
