@@ -57,7 +57,7 @@ if (isset($_SESSION['users_details'])) {
 
           <div class="tab-contents">
             <div id="admin-tab" class="tab-content current">
-              <form action="inc/add-admin.php" method="post" enctype="multipart/form-data">
+              <form action="inc/add-admin.php?type=admin" method="post" enctype="multipart/form-data">
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="username">Username:</label> 
@@ -116,7 +116,61 @@ if (isset($_SESSION['users_details'])) {
             </div>
 
             <div id="teacher-tab" class="tab-content">
+              <form action="inc/add-admin.php?type=teacher" method="post" enctype="multipart/form-data">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="username">Username:</label> 
+                    <input type="text" name="username" class="form-control" placeholder=" Username" id="username" value="" required> 
+                  </div> <!--ADD USERNAME-->
 
+                  <div class="form-group">
+                    <label for="Password">Password:</label> 
+                    <input type="password" name="password" class="form-control" placeholder="Password" id="password" required>   
+                  </div> <!--ADD PASSWORD--> 
+
+                  <div class="form-group">
+                    <label>Firstname:</label>           
+                    <input type="text" name="firstname" class="form-control" placeholder="Firstname" value="" required>   
+                  </div> <!--ADD FIRSTNAME-->
+
+                  <div class="form-group">
+                    <label>Middlename:</label>           
+                    <input type="text" name="middlename" class="form-control" placeholder="Middlename" value="" required>   
+                  </div> <!--ADD FIRSTNAME-->
+                </div> <!--COL-MD-6 END-->
+                
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label>Lastname:</label> 
+                    <input type="text" name="lastname" class="form-control" placeholder="Lastname" value="" required>   
+                  </div> <!--ADD LASTNAME-->
+
+                  <div class="form-group">
+                    <label>Extension: *(optional)</label> 
+                    <select name="extension_name" class="form-control">
+                      <option value="" default>Choose extension name</option>
+                      <option value="Jr.">Jr.</option>
+                      <option value="Sr.">Sr.</option>
+                      <option value="I">I</option>
+                      <option value="II">II</option>
+                      <option value="III">III</option>
+                      <option value="IV">IV</option>
+                      <option value="V">V</option>
+                    </select>   
+                  </div> <!--ADD EXTENSION-->
+
+                  <div class="form-group">
+                    <label for="image">Profile Pictures</label> 
+                    <input type="file" name="image" id="image">   
+                  </div> <!--ADD IMAGE-->
+
+                </div> <!--COL-MD-6 END-->
+
+                <div class="col-md-12">       
+                  <center><input type="submit" value="Create Teacher Account" name="add_admin" class="btn btn-default btn-md"></center>
+                </div> 
+              </form> 
             </div>
             <div id="student-tab" class="tab-content">
               <form action="inc/add-student.php" method="post">
