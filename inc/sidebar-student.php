@@ -33,7 +33,7 @@ echo $none;
 else
 {
 echo $session_image;
-} ?>' width='100px;' height='100px'; class="img-circle">
+} ?>' width='100px;' height='100px'; class="img-circle" style="object-fit: cover;">
 </div>
 
 <div class="col-md-8">

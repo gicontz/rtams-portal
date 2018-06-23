@@ -59,4 +59,15 @@
      color: #234F2C;
     }
 
+div.show-image:hover button{
+  display: block;
+}
+
+div.show-image button{
+  position:absolute;
+  top:33px;
+  left:27px;
+  display:none;
+}
+
 </style>

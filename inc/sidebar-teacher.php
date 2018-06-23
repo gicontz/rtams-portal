@@ -30,7 +30,7 @@ echo $none;
 else
 {
 echo $session_image;
-} ?>' width='100px;' height='100px'; class="img-circle">
+} ?>' width='100px;' height='100px'; class="img-circle" style="object-fit: cover;">
 </div>
 
 <div class="col-md-8">
@@ -62,5 +62,45 @@ echo $session_image;
   
         
 </div> <!--end row-->
+<!-- modal start -->
+<div id="changepic" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Update Profile Picture</h4>
+      </div>
+      <div class="modal-body">
 
+        <link rel="stylesheet" type="text/css" href="css/cropit.css">
+
+        <nav class="navbar navbar-default">
+        <center>
+          <div class="image-editor">
+            <br>
+            <input type="file" class="cropit-image-input"><br>
+            <div class="cropit-preview"></div>
+            <div class="image-size-label">
+              Resize image
+            </div>
+            <input type="range" class="cropit-image-zoom-input" style="width: 50%">
+            <button class="rotate-ccw fa fa-undo btn btn-success"></button>
+            <button class="rotate-cw fa fa-repeat btn btn-success"></button>
+
+            <button class="export btn btn-info" id="change_current_dp">Apply Changes</button>
+          </div>
+        </center>
+        <br>
+        </nav>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- modal end -->
 <?php include "java-all/java-clock.php"; ?>
