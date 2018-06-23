@@ -56,7 +56,7 @@ class Student extends XDLINE{
 	public function showStudentbyId($user_id){
 		return parent::select("*", "students_table inner join users_table on students_table.user_id = users_table.user_id", "students_table.user_id = $user_id", $this->configfile);
 	}
-	public function addStudent($student_id, $firstname, $lastname, $middlename, $section, $ext, $contact_number, $configfile){
+	public function addStudent($student_id, $firstname, $lastname, $middlename, $section, $ext, $contact_number, $img_src, $configfile){
 		$uid = parent::select("MAX(user_id)", "users_table", "", $configfile)[0]['MAX(user_id)'];
 		$stud_info = parent::select("student_number, contact_number", "students_table", "student_number = $student_id or contact_number = $contact_number", $configfile)[0];
 		if($stud_info == ""):
@@ -68,6 +68,7 @@ class Student extends XDLINE{
 				'extension' => $ext,
 				'username' => "student" . ($uid + 1),
 				'password' => parent::encrypt_password('12345678'),
+				'img_src' => $img_src,
 			), "1", "0", $configfile);
 
 			if($res == "1"):

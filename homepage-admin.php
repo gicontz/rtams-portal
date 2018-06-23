@@ -103,7 +103,9 @@ if (isset($_SESSION['users_details'])) {
 
                   <div class="form-group">
                     <label for="image">Profile Pictures</label> 
-                    <input type="file" name="image" id="image">   
+                    <!-- <input type="file" name="image" id="image" accept='image/*'>   -->
+                    <br>
+                    <input type="file" name="image" id="image2" accept='image/*'>   
                   </div> <!--ADD IMAGE-->
 
                 </div> <!--COL-MD-6 END-->
@@ -120,12 +122,12 @@ if (isset($_SESSION['users_details'])) {
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="username">Username:</label> 
-                    <input type="text" name="username" class="form-control" placeholder=" Username" id="username" value="" required> 
+                    <input type="text" name="username" class="form-control" placeholder=" Username" id="username2" value="" required> 
                   </div> <!--ADD USERNAME-->
 
                   <div class="form-group">
                     <label for="Password">Password:</label> 
-                    <input type="password" name="password" class="form-control" placeholder="Password" id="password" required>   
+                    <input type="password" name="password" class="form-control" placeholder="Password" id="password2" required>   
                   </div> <!--ADD PASSWORD--> 
 
                   <div class="form-group">
@@ -162,7 +164,7 @@ if (isset($_SESSION['users_details'])) {
 
                   <div class="form-group">
                     <label for="image">Profile Pictures</label> 
-                    <input type="file" name="image" id="image">   
+                    <input type="file" name="image" id="image2" accept='image/*'>   
                   </div> <!--ADD IMAGE-->
 
                 </div> <!--COL-MD-6 END-->
@@ -173,7 +175,7 @@ if (isset($_SESSION['users_details'])) {
               </form> 
             </div>
             <div id="student-tab" class="tab-content">
-              <form action="inc/add-student.php" method="post">
+              <form action="inc/add-student.php" method="post" enctype="multipart/form-data">
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
@@ -236,6 +238,13 @@ if (isset($_SESSION['users_details'])) {
                       <label>Contact Number:</label> 
                       <input type="number" name="contact_no" class="form-control" placeholder="Contact Number" value="" required>   
                     </div> <!--ADD LASTNAME-->
+
+                    <div class="form-group">
+                      <label for="image">Profile Pictures</label> 
+                      <!-- <input type="file" name="image" id="image" accept='image/*'>   -->
+                      <br>
+                      <input type="file" name="image" id="image3" accept='image/*'>   
+                    </div> <!--ADD IMAGE-->
 
                   </div> <!--COL-MD-6 END-->
 
@@ -326,6 +335,7 @@ if (isset($_SESSION['users_details'])) {
 </div> <!--panel end-->   
 </div> <!--md-8 end-->            
 </div> <!--container end-->
+
 
 <?php 
 getFooterAssets();
