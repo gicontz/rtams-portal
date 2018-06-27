@@ -24,6 +24,11 @@ class Student extends XDLINE{
 		return parent::select("student_number", "students_table", "user_id = $userid", $configfile)[0]['student_number'];
 	}
 
+	public function getAdvisory($configfile = "config.ini"){
+		return parent::select("`users_table`.`user_id`, `users_table`.`first_name`, `users_table`.`middle_name`, `users_table`.`last_name`, `students_table`.`contact_number`, `students_table`.`student_number`, `students_table`.`rfid_number`", "`users_table` INNER JOIN `students_table`", "`students_table`.`user_id` = `users_table`.`user_id` ORDER BY `users_table`.`last_name` ASC", $configfile);
+
+	}
+
 	public function showAttendance($rfid_number, $configfile){
 		return parent::select("time_in, time_out, date_in", "attendance_table", "rfid_number = $rfid_number ORDER BY date_in", $configfile);
 	} 
