@@ -25,7 +25,9 @@ class Student extends XDLINE{
 	}
 
 	public function getAdvisory($configfile = "config.ini"){
-		return parent::select("`users_table`.`user_id`, `users_table`.`first_name`, `users_table`.`middle_name`, `users_table`.`last_name`, `students_table`.`contact_number`, `students_table`.`student_number`, `students_table`.`rfid_number`", "`users_table` INNER JOIN `students_table`", "`students_table`.`user_id` = `users_table`.`user_id` ORDER BY `users_table`.`last_name` ASC", $configfile);
+		$userid = $_SESSION['users_details']['user_id'];
+
+		return parent::select("`users_table`.`user_id`, `users_table`.`first_name`, `users_table`.`middle_name`, `users_table`.`last_name`, `students_table`.`contact_number`, `students_table`.`student_number`, `students_table`.`rfid_number`, `sections_table`.*", "`users_table` INNER JOIN `students_table` INNER JOIN `sections_table`", "`sections_table`.`adviser_user_id` = '$userid' AND `students_table`.`user_id` = `users_table`.`user_id` AND `students_table`.`section_id` = `sections_table`.`section_id` ORDER BY `users_table`.`last_name` ASC", $configfile);
 
 	}
 

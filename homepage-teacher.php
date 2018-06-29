@@ -63,35 +63,39 @@ include("inc/datatabletop.php");
       <div class="panel-body"> 
                                                
         <table class="table table-striped">
-          <thead>
-            <tr>
-              <th></th>
-              <th>Name</th>
-              <th>Student Number</th>
-              <th>Contact Number</th>
-              <th>RFID Number</th>
-            </tr>
-          </thead>
-          <tbody>
+          
             <?php 
               global $studentClass;
               $advisoryData = $studentClass->getAdvisory();
-
-              foreach ($advisoryData as $key => $value) {
+              if ($advisoryData[0] != "") {
                 ?>
-                  <tr>
-                    <td><button class="btn btn-default" data-target="#attendance-<?php echo $value["user_id"] ?>" data-toggle="modal"><i class="fa fa-book"></i></button></td>
-                    <td><?php echo ucfirst($value['last_name']).", ".ucfirst($value["first_name"])." ".ucfirst($value["middle_name"]); ?></td>
-                    <td><?php echo $value['student_number']; ?></td>
-                    <td><?php echo $value['contact_number']; ?></td>
-                    <td><?php echo $value['rfid_number']; ?></td>
-                  </tr>
-
-                  
+                    <thead>
+                      <tr>
+                        <th></th>
+                        <th>Name</th>
+                        <th>Student Number</th>
+                        <th>Contact Number</th>
+                        <th>RFID Number</th>
+                      </tr>
+                    </thead>
+                    <tbody>
                 <?php
+                foreach ($advisoryData as $key => $value) {
+                  ?>
+                    <tr>
+                      <td><button class="btn btn-default" data-target="#attendance-<?php echo $value["user_id"] ?>" data-toggle="modal"><i class="fa fa-book"></i></button></td>
+                      <td><?php echo ucfirst($value['last_name']).", ".ucfirst($value["first_name"])." ".ucfirst($value["middle_name"]); ?></td>
+                      <td><?php echo $value['student_number']; ?></td>
+                      <td><?php echo $value['contact_number']; ?></td>
+                      <td><?php echo $value['rfid_number']; ?></td>
+                    </tr>
+
+                    
+                  <?php
+                }
+              }else {
+                echo "<center><h4>No advisory yet</h4></center>";
               }
-
-
 
              ?>
            
