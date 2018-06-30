@@ -55,7 +55,9 @@ echo $session_image;
 
 <a href="http://www.feucavite.edu.ph/index.php/directory/" target="_blank" class="list-group-item"><i class="fa fa-map-marker" aria-hidden="true"></i> Location</a>
 
-<a href="profile-teacher.php" class="list-group-item"><i class="fa fa-user" aria-hidden="true"></i> Profile</a>
+<a href="?menu=profile" class="list-group-item"><i class="fa fa-user" aria-hidden="true"></i> Profile</a>
+
+<a href="?menu=advisory" class="list-group-item"><i class="fa fa-users" aria-hidden="true"></i> Advisory</a>
 
 <a href="lib/logout" class="list-group-item"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout </a>
 </div> <!--end list group-->

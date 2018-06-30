@@ -19,6 +19,8 @@ if (isset($_SESSION['users_details'])) {
   header('Location: '. $domain_header);
 }
 
+
+
 ?>
 
 
